@@ -51,6 +51,7 @@ def use_login_state(browser_context_args: dict, saved_login: dict) -> dict:
     yield
     del browser_context_args['storage_state']
 
+
 @pytest.fixture(scope="session")
 def browser_type_launch_args(browser_type_launch_args: dict):
     """ Update browser parameters """
