@@ -1,17 +1,16 @@
 import pytest
-from playwright.sync_api import Page, Browser, Playwright
+from playwright.sync_api import Page, Browser
 from rozenka.components.pages import PythonPage
-from rozenka.components.base_page import BasePage
 from urllib.parse import urljoin
 from typing import Generator
 from pathlib import Path
 import pickle
 
 
-
 BASE_URL = "https://playwright.dev"
 PYTHON_PAGE = "python"
 PAGE_TIMEOUT = 15 * 1000
+
 
 @pytest.fixture(scope='session')
 def project_dir():
