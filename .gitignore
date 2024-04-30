@@ -1,1 +1,6 @@
 venv
+.idea
+rozenka/__pycache__/
+rozenka/components/__pycache__/
+rozenka/cookies.pkl
+rozenka/cookies.pkl
