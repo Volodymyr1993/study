@@ -29,9 +29,4 @@ jobs:
     - name: Install playwright
       run: python -m playwright install --with-deps
     - name: Run your tests
-      run: pytest --browser firefox --browser chromium --headed
-    - uses: actions/upload-artifact@v4
-      if: ${{ !cancelled() }}
-      with:
-        name: playwright-traces
-        path: test-results/
+      run: pytest --browser firefox --browser chromium
