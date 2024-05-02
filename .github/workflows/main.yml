@@ -23,6 +23,7 @@ jobs:
         source venv/bin/activate
         pip install -U pip setuptools
         pip install pytest
+        pytest
         pip install -e .
         python -m playwright install --with-deps
     - name: Run your tests
