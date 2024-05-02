@@ -11,7 +11,7 @@ setup(
 
     install_requires=[
         'allure-pytest',
-        'playwright'
+        'playwright',
         'pytest',
         'pytest-playwright',
         'flask',
