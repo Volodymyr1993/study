@@ -24,7 +24,10 @@ jobs:
         pip install -U pip setuptools
         pip install -e .
     - name: Ensure browsers are installed
-      run: playwright install
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+        python -m playwright install --with-deps
     - name: Run your tests
       run: pytest tests/
     - uses: actions/upload-artifact@v4
