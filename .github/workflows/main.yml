@@ -19,10 +19,11 @@ jobs:
         python-version: '3.11'
     - name: Install dependencies
       run: |
+        cd ..
         python3 -m venv venv
         source venv/bin/activate
         pip install -U pip setuptools
-        cd rozenka/
+        cd rozenka
         pip install -e .
     - name: Ensure browsers are installed
       run: python -m playwright install --with-deps
