@@ -25,7 +25,7 @@ jobs:
         pip install -e .
         python -m playwright install --with-deps
     - name: Run your tests
-      run: pytest rozenka/tests/
+      run: pytest
     - uses: actions/upload-artifact@v4
       if: ${{ !cancelled() }}
       with:
