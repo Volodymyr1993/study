@@ -24,9 +24,9 @@ jobs:
         pip install -U pip setuptools
         pip install -e .
     - name: Ensure browsers are installed
-      run: python -m playwright install --with-deps
+      run: playwright install --with-deps
     - name: Run your tests
-      run: pytest rozenka/tests/
+      run: pytest tests/
     - uses: actions/upload-artifact@v4
       if: ${{ !cancelled() }}
       with:
