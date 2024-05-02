@@ -23,6 +23,7 @@ jobs:
         python3 -m venv venv
         source venv/bin/activate
         pip install -U pip setuptools
+        ll
         cd rozenka/
         pip install -e .
     - name: Ensure browsers are installed
