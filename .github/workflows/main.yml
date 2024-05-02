@@ -23,17 +23,13 @@ jobs:
         source venv/bin/activate
         pip install -U pip setuptools
     - name: Install requirements
-      run: |
-        pip install -r requirements.txt
+      run: pip install -r requirements.txt
     - name: Install e
-      run: |
-        pip install -e .
+      run: pip install -e .
     - name: Install playwright
-      run: |
-        python -m playwright install --with-deps
+      run: python -m playwright install --with-deps
     - name: Run your tests
-      run: |
-        pytest studu/rozenka/tests/
+      run: pytest
     - uses: actions/upload-artifact@v4
       if: ${{ !cancelled() }}
       with:
