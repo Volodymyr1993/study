@@ -1,9 +1,12 @@
 name: Playwright Tests
+run-name: ${{ github.actor }} is learning Github Actions
 on:
+  workflow_dispatch:
   push:
-    branches: [ main ]
+    branches:
+      - main
   pull_request:
-    branches: [ main ]
+
 jobs:
   test:
     timeout-minutes: 60
@@ -16,12 +19,15 @@ jobs:
         python-version: '3.11'
     - name: Install dependencies
       run: |
-        python -m pip install --upgrade pip
-        pip install -r requirements.txt
+        python3 -m venv venv/
+        source venv/bin/activate
+        pip install -U pip setuptools
+        cd rozenka/
+        pip install -e .
     - name: Ensure browsers are installed
       run: python -m playwright install --with-deps
     - name: Run your tests
-      run: pytest --tracing=retain-on-failure
+      run: pytest rozenka/tests/
     - uses: actions/upload-artifact@v4
       if: ${{ !cancelled() }}
       with:
