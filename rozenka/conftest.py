@@ -57,7 +57,7 @@ def browser_type_launch_args(browser_type_launch_args: dict):
     """ Update browser parameters """
     return {
         **browser_type_launch_args,
-        'headless': False,
+        'headless': True,
         'slow_mo': 500,
         'timeout': 60 * 1000,  # 60 sec
         'devtools': False,
