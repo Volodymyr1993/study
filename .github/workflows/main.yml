@@ -16,7 +16,7 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v4
       with:
-        python-version: '3.11'
+        python-version: '>=3.8.7'
     - name: Install env dependencies
       run: |
         python3 -m venv venv/
@@ -25,7 +25,9 @@ jobs:
         pip install -e .
         playwright install --with-deps
     - name: Run your tests
-      run: pytest --browser firefox --browser chromium --junit-xml=test-results.xml
+      run: |
+        cd /rozenka/tests
+        pytest --browser firefox --browser chromium --junit-xml=test-results.xml
 
     - name: Surface failing tests
       if: always()
