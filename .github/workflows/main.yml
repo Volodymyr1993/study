@@ -24,13 +24,7 @@ jobs:
         pip install -U pip setuptools
         pip install -e .
         playwright install --with-deps
-    - name: Verify pytest installation
-      run: |
-        source venv/bin/activate
-        pip list  # List installed packages to verify pytest-playwright is installed
-        pytest --version  # Verify pytest version
-        pytest --help | grep browser  # Check if the browser option is listed
     - name: Run your tests
       run: |
-        source venv/bin/activate
+        cd /home/runner/work/study/study
         pytest --browser firefox --browser chromium

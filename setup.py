@@ -18,8 +18,7 @@ setup(
     ],
 
     tests_require=[
-        'pytest',
-
+        'pytest'
     ],
 
     packages=find_packages(),
