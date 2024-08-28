@@ -19,12 +19,11 @@ jobs:
         python-version: '3.11'
     - name: Install env dependencies
       run: |
-        python3 -m venv venv
+        python3 -m venv venv/
         source venv/bin/activate
         pip install -U pip setuptools
         pip install -e .
-    - name: Install playwright
-      run: python -m playwright install --with-deps
+        playwright install --with-deps
     - name: Run your tests
       run: pytest --browser firefox --browser chromium --junit-xml=test-results.xml
 
