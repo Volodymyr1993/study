@@ -27,4 +27,4 @@ jobs:
     - name: Run your tests
       run: |
         source venv/bin/activate 
-        pytest --browser firefox --browser chromium
+        pytest rozenka/tests/ --browser firefox --browser chromium
