@@ -27,7 +27,9 @@ jobs:
     - name: Verify pytest installation
       run: |
         source venv/bin/activate
-        pytest --version
+        pip list  # List installed packages to verify pytest-playwright is installed
+        pytest --version  # Verify pytest version
+        pytest --help | grep browser  # Check if the browser option is listed
     - name: Run your tests
       run: |
         source venv/bin/activate
