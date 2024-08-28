@@ -26,4 +26,5 @@ jobs:
         playwright install --with-deps
     - name: Run your tests
       run: |
+        source venv/bin/activate
         pytest /home/runner/work/study/ --browser firefox --browser chromium
