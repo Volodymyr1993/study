@@ -13,12 +13,13 @@ setup(
         'allure-pytest',
         'playwright',
         'flask',
-        'requests'
+        'requests',
+        'pytest-playwright'
     ],
 
     tests_require=[
         'pytest',
-        'pytest-playwright',
+
     ],
 
     packages=find_packages(),
