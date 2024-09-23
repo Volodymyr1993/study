@@ -15,11 +15,5 @@ setup(
         'flask',
         'requests',
         'pytest-playwright'
-    ],
-
-    tests_require=[
-        'pytest'
-    ],
-
-    packages=find_packages(),
+    ]
 )
