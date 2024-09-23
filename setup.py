@@ -1,4 +1,4 @@
-from setuptools import setup
+from setuptools import setup, find_packages
 
 __version__ = '0.0.1'
 
@@ -12,9 +12,8 @@ setup(
     install_requires=[
         'allure-pytest',
         'playwright',
-        'pytest',
-        'pytest-playwright',
         'flask',
-        'requests'
-    ],
+        'requests',
+        'pytest-playwright'
+    ]
 )

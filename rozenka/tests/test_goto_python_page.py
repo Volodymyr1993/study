@@ -13,7 +13,7 @@ def test_second_test(python_page):
 
 def test_third_test(python_page):
     python_page.get_started_button.click()
-    assert not python_page.writing_tests.is_visible(), "Installation is not sisible"
+    assert python_page.writing_tests.is_visible(), "Installation is not sisible"
 
 
 def test_tasdhird_test(python_page):

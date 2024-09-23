@@ -16,36 +16,15 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v4
       with:
-        python-version: '3.11'
-    - name: Install setuptools
+        python-version: '>=3.8.7'
+    - name: Install env dependencies
       run: |
-        python3 -m venv venv
+        python3 -m venv venv/
         source venv/bin/activate
         pip install -U pip setuptools
-    - name: Install requirements
-      run: pip install -r requirements.txt
-    - name: Install e
-      run: pip install -e .
-    - name: Install playwright
-      run: python -m playwright install --with-deps
+        pip install -e .
+        playwright install --with-deps
     - name: Run your tests
-      run: pytest --browser firefox --browser chromium --junit-xml=test-results.xml
-
-    - name: Surface failing tests
-      if: always()
-      uses: pmeier/pytest-results-action@main
-      with:
-        # A list of JUnit XML files, directories containing the former, and wildcard
-        # patterns to process.
-        # See @actions/glob for supported patterns.
-        path: test-results.xml
-
-        # (Optional) Add a summary of the results at the top of the report
-        summary: true
-
-        # (Optional) Select which results should be included in the report.
-        # Follows the same syntax as `pytest -r`
-        display-options: fEX
-
-        # (Optional) Title of the test results section in the workflow summary
-        title: Test results
+      run: |
+        source venv/bin/activate 
+        pytest rozenka/tests/ --browser firefox --browser chromium
