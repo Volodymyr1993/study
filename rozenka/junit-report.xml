@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="7" failures="4" skipped="0" tests="14" time="14.720" timestamp="2024-09-26T20:36:31.595781+03:00" hostname="827K3X2"><testcase classname="tests.test_goto_py_page" name="test_simple_go3_to_python_page[firefox]" time="0.946"><error message="failed on setup with &quot;playwright._impl._errors.Error: Browser.new_context: options.isMobile is not supported in Firefox&quot;">new_context = &lt;function new_context.&lt;locals&gt;._new_context at 0x7fcf3d51df70&gt;
+
+    @pytest.fixture
+    def context(new_context: CreateContextCallback) -&gt; BrowserContext:
+&gt;       return new_context()
+
+../../../.local/lib/python3.8/site-packages/pytest_playwright/pytest_playwright.py:348: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+../../../.local/lib/python3.8/site-packages/pytest_playwright/pytest_playwright.py:328: in _new_context
+    context = browser.new_context(**browser_context_args, **kwargs)
+../../../.local/lib/python3.8/site-packages/playwright/sync_api/_generated.py:13637: in new_context
+    self._sync(
+../../../.local/lib/python3.8/site-packages/playwright/_impl/_browser.py:129: in new_context
+    channel = await self._channel.send("newContext", params)
+../../../.local/lib/python3.8/site-packages/playwright/_impl/_connection.py:59: in send
+    return await self._connection.wrap_api_call(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = &lt;playwright._impl._connection.Connection object at 0x7fcf3d536340&gt;, cb = &lt;function Channel.send.&lt;locals&gt;.&lt;lambda&gt; at 0x7fcf3ca02af0&gt;, is_internal = False
+
+    async def wrap_api_call(
+        self, cb: Callable[[], Any], is_internal: bool = False
+    ) -&gt; Any:
+        if self._api_zone.get():
+            return await cb()
+        task = asyncio.current_task(self._loop)
+        st: List[inspect.FrameInfo] = getattr(task, "__pw_stack__", inspect.stack())
+        parsed_st = _extract_stack_trace_information_from_stack(st, is_internal)
+        self._api_zone.set(parsed_st)
+        try:
+            return await cb()
+        except Exception as error:
+&gt;           raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+E           playwright._impl._errors.Error: Browser.new_context: options.isMobile is not supported in Firefox
+
+../../../.local/lib/python3.8/site-packages/playwright/_impl/_connection.py:514: Error</error></testcase><testcase classname="tests.test_goto_py_page" name="test_second3_test[firefox]" time="0.003"><error message="failed on setup with &quot;playwright._impl._errors.Error: Browser.new_context: options.isMobile is not supported in Firefox&quot;">new_context = &lt;function new_context.&lt;locals&gt;._new_context at 0x7fcf3d51dd30&gt;
+
+    @pytest.fixture
+    def context(new_context: CreateContextCallback) -&gt; BrowserContext:
+&gt;       return new_context()
+
+../../../.local/lib/python3.8/site-packages/pytest_playwright/pytest_playwright.py:348: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+../../../.local/lib/python3.8/site-packages/pytest_playwright/pytest_playwright.py:328: in _new_context
+    context = browser.new_context(**browser_context_args, **kwargs)
+../../../.local/lib/python3.8/site-packages/playwright/sync_api/_generated.py:13637: in new_context
+    self._sync(
+../../../.local/lib/python3.8/site-packages/playwright/_impl/_browser.py:129: in new_context
+    channel = await self._channel.send("newContext", params)
+../../../.local/lib/python3.8/site-packages/playwright/_impl/_connection.py:59: in send
+    return await self._connection.wrap_api_call(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = &lt;playwright._impl._connection.Connection object at 0x7fcf3d536340&gt;, cb = &lt;function Channel.send.&lt;locals&gt;.&lt;lambda&gt; at 0x7fcf3c996160&gt;, is_internal = False
+
+    async def wrap_api_call(
+        self, cb: Callable[[], Any], is_internal: bool = False
+    ) -&gt; Any:
+        if self._api_zone.get():
+            return await cb()
+        task = asyncio.current_task(self._loop)
+        st: List[inspect.FrameInfo] = getattr(task, "__pw_stack__", inspect.stack())
+        parsed_st = _extract_stack_trace_information_from_stack(st, is_internal)
+        self._api_zone.set(parsed_st)
+        try:
+            return await cb()
+        except Exception as error:
+&gt;           raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+E           playwright._impl._errors.Error: Browser.new_context: options.isMobile is not supported in Firefox
+
+../../../.local/lib/python3.8/site-packages/playwright/_impl/_connection.py:514: Error</error></testcase><testcase classname="tests.test_goto_py_page" name="test_thir3d_test[firefox]" time="0.003"><error message="failed on setup with &quot;playwright._impl._errors.Error: Browser.new_context: options.isMobile is not supported in Firefox&quot;">new_context = &lt;function new_context.&lt;locals&gt;._new_context at 0x7fcf3d564550&gt;
+
+    @pytest.fixture
+    def context(new_context: CreateContextCallback) -&gt; BrowserContext:
+&gt;       return new_context()
+
+../../../.local/lib/python3.8/site-packages/pytest_playwright/pytest_playwright.py:348: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+../../../.local/lib/python3.8/site-packages/pytest_playwright/pytest_playwright.py:328: in _new_context
+    context = browser.new_context(**browser_context_args, **kwargs)
+../../../.local/lib/python3.8/site-packages/playwright/sync_api/_generated.py:13637: in new_context
+    self._sync(
+../../../.local/lib/python3.8/site-packages/playwright/_impl/_browser.py:129: in new_context
+    channel = await self._channel.send("newContext", params)
+../../../.local/lib/python3.8/site-packages/playwright/_impl/_connection.py:59: in send
+    return await self._connection.wrap_api_call(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = &lt;playwright._impl._connection.Connection object at 0x7fcf3d536340&gt;, cb = &lt;function Channel.send.&lt;locals&gt;.&lt;lambda&gt; at 0x7fcf3c996670&gt;, is_internal = False
+
+    async def wrap_api_call(
+        self, cb: Callable[[], Any], is_internal: bool = False
+    ) -&gt; Any:
+        if self._api_zone.get():
+            return await cb()
+        task = asyncio.current_task(self._loop)
+        st: List[inspect.FrameInfo] = getattr(task, "__pw_stack__", inspect.stack())
+        parsed_st = _extract_stack_trace_information_from_stack(st, is_internal)
+        self._api_zone.set(parsed_st)
+        try:
+            return await cb()
+        except Exception as error:
+&gt;           raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+E           playwright._impl._errors.Error: Browser.new_context: options.isMobile is not supported in Firefox
+
+../../../.local/lib/python3.8/site-packages/playwright/_impl/_connection.py:514: Error</error></testcase><testcase classname="tests.test_goto_python_page" name="test_simple_go_to_python_page[firefox]" time="0.003"><error message="failed on setup with &quot;playwright._impl._errors.Error: Browser.new_context: options.isMobile is not supported in Firefox&quot;">new_context = &lt;function new_context.&lt;locals&gt;._new_context at 0x7fcf3c9c25e0&gt;
+
+    @pytest.fixture
+    def context(new_context: CreateContextCallback) -&gt; BrowserContext:
+&gt;       return new_context()
+
+../../../.local/lib/python3.8/site-packages/pytest_playwright/pytest_playwright.py:348: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+../../../.local/lib/python3.8/site-packages/pytest_playwright/pytest_playwright.py:328: in _new_context
+    context = browser.new_context(**browser_context_args, **kwargs)
+../../../.local/lib/python3.8/site-packages/playwright/sync_api/_generated.py:13637: in new_context
+    self._sync(
+../../../.local/lib/python3.8/site-packages/playwright/_impl/_browser.py:129: in new_context
+    channel = await self._channel.send("newContext", params)
+../../../.local/lib/python3.8/site-packages/playwright/_impl/_connection.py:59: in send
+    return await self._connection.wrap_api_call(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = &lt;playwright._impl._connection.Connection object at 0x7fcf3d536340&gt;, cb = &lt;function Channel.send.&lt;locals&gt;.&lt;lambda&gt; at 0x7fcf3c9c2700&gt;, is_internal = False
+
+    async def wrap_api_call(
+        self, cb: Callable[[], Any], is_internal: bool = False
+    ) -&gt; Any:
+        if self._api_zone.get():
+            return await cb()
+        task = asyncio.current_task(self._loop)
+        st: List[inspect.FrameInfo] = getattr(task, "__pw_stack__", inspect.stack())
+        parsed_st = _extract_stack_trace_information_from_stack(st, is_internal)
+        self._api_zone.set(parsed_st)
+        try:
+            return await cb()
+        except Exception as error:
+&gt;           raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+E           playwright._impl._errors.Error: Browser.new_context: options.isMobile is not supported in Firefox
+
+../../../.local/lib/python3.8/site-packages/playwright/_impl/_connection.py:514: Error</error></testcase><testcase classname="tests.test_goto_python_page" name="test_second_test[firefox]" time="0.003"><error message="failed on setup with &quot;playwright._impl._errors.Error: Browser.new_context: options.isMobile is not supported in Firefox&quot;">new_context = &lt;function new_context.&lt;locals&gt;._new_context at 0x7fcf3c996040&gt;
+
+    @pytest.fixture
+    def context(new_context: CreateContextCallback) -&gt; BrowserContext:
+&gt;       return new_context()
+
+../../../.local/lib/python3.8/site-packages/pytest_playwright/pytest_playwright.py:348: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+../../../.local/lib/python3.8/site-packages/pytest_playwright/pytest_playwright.py:328: in _new_context
+    context = browser.new_context(**browser_context_args, **kwargs)
+../../../.local/lib/python3.8/site-packages/playwright/sync_api/_generated.py:13637: in new_context
+    self._sync(
+../../../.local/lib/python3.8/site-packages/playwright/_impl/_browser.py:129: in new_context
+    channel = await self._channel.send("newContext", params)
+../../../.local/lib/python3.8/site-packages/playwright/_impl/_connection.py:59: in send
+    return await self._connection.wrap_api_call(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = &lt;playwright._impl._connection.Connection object at 0x7fcf3d536340&gt;, cb = &lt;function Channel.send.&lt;locals&gt;.&lt;lambda&gt; at 0x7fcf3c996c10&gt;, is_internal = False
+
+    async def wrap_api_call(
+        self, cb: Callable[[], Any], is_internal: bool = False
+    ) -&gt; Any:
+        if self._api_zone.get():
+            return await cb()
+        task = asyncio.current_task(self._loop)
+        st: List[inspect.FrameInfo] = getattr(task, "__pw_stack__", inspect.stack())
+        parsed_st = _extract_stack_trace_information_from_stack(st, is_internal)
+        self._api_zone.set(parsed_st)
+        try:
+            return await cb()
+        except Exception as error:
+&gt;           raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+E           playwright._impl._errors.Error: Browser.new_context: options.isMobile is not supported in Firefox
+
+../../../.local/lib/python3.8/site-packages/playwright/_impl/_connection.py:514: Error</error></testcase><testcase classname="tests.test_goto_python_page" name="test_third_test[firefox]" time="0.003"><error message="failed on setup with &quot;playwright._impl._errors.Error: Browser.new_context: options.isMobile is not supported in Firefox&quot;">new_context = &lt;function new_context.&lt;locals&gt;._new_context at 0x7fcf3c996b80&gt;
+
+    @pytest.fixture
+    def context(new_context: CreateContextCallback) -&gt; BrowserContext:
+&gt;       return new_context()
+
+../../../.local/lib/python3.8/site-packages/pytest_playwright/pytest_playwright.py:348: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+../../../.local/lib/python3.8/site-packages/pytest_playwright/pytest_playwright.py:328: in _new_context
+    context = browser.new_context(**browser_context_args, **kwargs)
+../../../.local/lib/python3.8/site-packages/playwright/sync_api/_generated.py:13637: in new_context
+    self._sync(
+../../../.local/lib/python3.8/site-packages/playwright/_impl/_browser.py:129: in new_context
+    channel = await self._channel.send("newContext", params)
+../../../.local/lib/python3.8/site-packages/playwright/_impl/_connection.py:59: in send
+    return await self._connection.wrap_api_call(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = &lt;playwright._impl._connection.Connection object at 0x7fcf3d536340&gt;, cb = &lt;function Channel.send.&lt;locals&gt;.&lt;lambda&gt; at 0x7fcf3c996790&gt;, is_internal = False
+
+    async def wrap_api_call(
+        self, cb: Callable[[], Any], is_internal: bool = False
+    ) -&gt; Any:
+        if self._api_zone.get():
+            return await cb()
+        task = asyncio.current_task(self._loop)
+        st: List[inspect.FrameInfo] = getattr(task, "__pw_stack__", inspect.stack())
+        parsed_st = _extract_stack_trace_information_from_stack(st, is_internal)
+        self._api_zone.set(parsed_st)
+        try:
+            return await cb()
+        except Exception as error:
+&gt;           raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+E           playwright._impl._errors.Error: Browser.new_context: options.isMobile is not supported in Firefox
+
+../../../.local/lib/python3.8/site-packages/playwright/_impl/_connection.py:514: Error</error></testcase><testcase classname="tests.test_goto_python_page" name="test_tasdhird_test[firefox]" time="0.003"><error message="failed on setup with &quot;playwright._impl._errors.Error: Browser.new_context: options.isMobile is not supported in Firefox&quot;">new_context = &lt;function new_context.&lt;locals&gt;._new_context at 0x7fcf3c996dc0&gt;
+
+    @pytest.fixture
+    def context(new_context: CreateContextCallback) -&gt; BrowserContext:
+&gt;       return new_context()
+
+../../../.local/lib/python3.8/site-packages/pytest_playwright/pytest_playwright.py:348: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+../../../.local/lib/python3.8/site-packages/pytest_playwright/pytest_playwright.py:328: in _new_context
+    context = browser.new_context(**browser_context_args, **kwargs)
+../../../.local/lib/python3.8/site-packages/playwright/sync_api/_generated.py:13637: in new_context
+    self._sync(
+../../../.local/lib/python3.8/site-packages/playwright/_impl/_browser.py:129: in new_context
+    channel = await self._channel.send("newContext", params)
+../../../.local/lib/python3.8/site-packages/playwright/_impl/_connection.py:59: in send
+    return await self._connection.wrap_api_call(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = &lt;playwright._impl._connection.Connection object at 0x7fcf3d536340&gt;, cb = &lt;function Channel.send.&lt;locals&gt;.&lt;lambda&gt; at 0x7fcf3c996160&gt;, is_internal = False
+
+    async def wrap_api_call(
+        self, cb: Callable[[], Any], is_internal: bool = False
+    ) -&gt; Any:
+        if self._api_zone.get():
+            return await cb()
+        task = asyncio.current_task(self._loop)
+        st: List[inspect.FrameInfo] = getattr(task, "__pw_stack__", inspect.stack())
+        parsed_st = _extract_stack_trace_information_from_stack(st, is_internal)
+        self._api_zone.set(parsed_st)
+        try:
+            return await cb()
+        except Exception as error:
+&gt;           raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+E           playwright._impl._errors.Error: Browser.new_context: options.isMobile is not supported in Firefox
+
+../../../.local/lib/python3.8/site-packages/playwright/_impl/_connection.py:514: Error</error></testcase><testcase classname="tests.test_goto_py_page" name="test_simple_go3_to_python_page[chromium]" time="2.034" /><testcase classname="tests.test_goto_py_page" name="test_second3_test[chromium]" time="1.886" /><testcase classname="tests.test_goto_py_page" name="test_thir3d_test[chromium]" time="1.869"><failure message="AssertionError: Installation is not sisible&#10;assert False&#10; +  where False = is_visible()&#10; +    where is_visible = &lt;rozenka.components.elements.PageElement object at 0x7fcf3c396100&gt;.is_visible&#10; +      where &lt;rozenka.components.elements.PageElement object at 0x7fcf3c396100&gt; = &lt;rozenka.components.pages.PythonPage object at 0x7fcf3c8efac0&gt;.writing_tests">python_page = &lt;rozenka.components.pages.PythonPage object at 0x7fcf3c8efac0&gt;
+
+    def test_thir3d_test(python_page):
+        python_page.get_started_button.click()
+&gt;       assert python_page.writing_tests.is_visible(), "Installation is not sisible"
+E       AssertionError: Installation is not sisible
+E       assert False
+E        +  where False = is_visible()
+E        +    where is_visible = &lt;rozenka.components.elements.PageElement object at 0x7fcf3c396100&gt;.is_visible
+E        +      where &lt;rozenka.components.elements.PageElement object at 0x7fcf3c396100&gt; = &lt;rozenka.components.pages.PythonPage object at 0x7fcf3c8efac0&gt;.writing_tests
+
+tests/test_goto_py_page.py:16: AssertionError</failure></testcase><testcase classname="tests.test_goto_python_page" name="test_simple_go_to_python_page[chromium]" time="1.358" /><testcase classname="tests.test_goto_python_page" name="test_second_test[chromium]" time="1.837"><failure message="AssertionError: Installation is not sisible&#10;assert False&#10; +  where False = is_visible()&#10; +    where is_visible = &lt;rozenka.components.elements.PageElement object at 0x7fcf3c0ef6a0&gt;.is_visible&#10; +      where &lt;rozenka.components.elements.PageElement object at 0x7fcf3c0ef6a0&gt; = &lt;rozenka.components.pages.PythonPage object at 0x7fcf3c7fd370&gt;.installation">python_page = &lt;rozenka.components.pages.PythonPage object at 0x7fcf3c7fd370&gt;
+
+    def test_second_test(python_page):
+        python_page.get_started_button.click()
+&gt;       assert python_page.installation.is_visible(), "Installation is not sisible"
+E       AssertionError: Installation is not sisible
+E       assert False
+E        +  where False = is_visible()
+E        +    where is_visible = &lt;rozenka.components.elements.PageElement object at 0x7fcf3c0ef6a0&gt;.is_visible
+E        +      where &lt;rozenka.components.elements.PageElement object at 0x7fcf3c0ef6a0&gt; = &lt;rozenka.components.pages.PythonPage object at 0x7fcf3c7fd370&gt;.installation
+
+tests/test_goto_python_page.py:11: AssertionError</failure></testcase><testcase classname="tests.test_goto_python_page" name="test_third_test[chromium]" time="1.945"><failure message="AssertionError: Installation is not sisible&#10;assert False&#10; +  where False = is_visible()&#10; +    where is_visible = &lt;rozenka.components.elements.PageElement object at 0x7fcf3cc4ed00&gt;.is_visible&#10; +      where &lt;rozenka.components.elements.PageElement object at 0x7fcf3cc4ed00&gt; = &lt;rozenka.components.pages.PythonPage object at 0x7fcf3c93f6a0&gt;.writing_tests">python_page = &lt;rozenka.components.pages.PythonPage object at 0x7fcf3c93f6a0&gt;
+
+    def test_third_test(python_page):
+        python_page.get_started_button.click()
+&gt;       assert python_page.writing_tests.is_visible(), "Installation is not sisible"
+E       AssertionError: Installation is not sisible
+E       assert False
+E        +  where False = is_visible()
+E        +    where is_visible = &lt;rozenka.components.elements.PageElement object at 0x7fcf3cc4ed00&gt;.is_visible
+E        +      where &lt;rozenka.components.elements.PageElement object at 0x7fcf3cc4ed00&gt; = &lt;rozenka.components.pages.PythonPage object at 0x7fcf3c93f6a0&gt;.writing_tests
+
+tests/test_goto_python_page.py:16: AssertionError</failure></testcase><testcase classname="tests.test_goto_python_page" name="test_tasdhird_test[chromium]" time="1.960"><failure message="AssertionError: Installation is not sisible&#10;assert False&#10; +  where False = is_visible()&#10; +    where is_visible = &lt;rozenka.components.elements.PageElement object at 0x7fcf3c7f3f10&gt;.is_visible&#10; +      where &lt;rozenka.components.elements.PageElement object at 0x7fcf3c7f3f10&gt; = &lt;rozenka.components.pages.PythonPage object at 0x7fcf3c3a2a30&gt;.writing_tests">python_page = &lt;rozenka.components.pages.PythonPage object at 0x7fcf3c3a2a30&gt;
+
+    def test_tasdhird_test(python_page):
+        python_page.get_started_button.click()
+&gt;       assert python_page.writing_tests.is_visible(), "Installation is not sisible"
+E       AssertionError: Installation is not sisible
+E       assert False
+E        +  where False = is_visible()
+E        +    where is_visible = &lt;rozenka.components.elements.PageElement object at 0x7fcf3c7f3f10&gt;.is_visible
+E        +      where &lt;rozenka.components.elements.PageElement object at 0x7fcf3c7f3f10&gt; = &lt;rozenka.components.pages.PythonPage object at 0x7fcf3c3a2a30&gt;.writing_tests
+
+tests/test_goto_python_page.py:21: AssertionError</failure></testcase></testsuite></testsuites>
