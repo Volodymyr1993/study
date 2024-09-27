@@ -1,44 +1,34 @@
-import json
-import random
-import string
+import requests
+from bs4 import BeautifulSoup
 
-# Function to generate random string for 'name' field
-def generate_random_name(length=8):
-    letters = string.ascii_letters
-    return ''.join(random.choice(letters) for _ in range(length))
+# URL of the page with the HTML table
+url = 'view-source:https://dev.axonicportal.com/admin/casemanagement'
 
-# Number of JSON objects to generate
-num_objects = 200
+# Make a GET request to fetch the HTML content
+response = requests.get(url)
 
-# List to store JSON objects
-json_objects = []
+# Parse the HTML content using BeautifulSoup
+soup = BeautifulSoup(response.text, 'html.parser')
 
-# Generate JSON objects
-for _ in range(num_objects):
-    obj = {
-    "name": generate_random_name(),
-    "hosts": [
-      {
-        "scheme": "match",
-        "location": [
-          {
-            "hostname": "www.google.com"
-          }
-        ]
-      }
-    ],
-    "balancer": "primary_failover",
-    "tls_verify": {
-      "use_sni": True,
-      "allow_self_signed_certs": False,
-      "sni_hint_and_strict_san_check": "www.google.com"
-    },
-    "override_host_header": "www.google.com"
-  }
-    json_objects.append(obj)
+# Find the table by its tag (for example <table>)
+table = soup.find('table')
 
-# Convert list of JSON objects to JSON string
-json_string = json.dumps(json_objects, indent=4)
+# Initialize a variable to store the sum
+total_sum = 0
 
-# Print JSON string
-print(json_string)
+# Loop through the rows of the table
+for row in table.find_all('tr'):
+    # Find all cells in the row
+    cells = row.find_all('td')
+
+    # If there are cells in the row, get the data (assuming numeric data in one column)
+    if cells:
+        try:
+            # Assuming the number is in the first column (index 0)
+            value = float(cells[0].text.strip())
+            total_sum += value
+        except ValueError:
+            # Handle rows with non-numeric values (like headers)
+            pass
+
+print(f"The total sum is: {total_sum}")
